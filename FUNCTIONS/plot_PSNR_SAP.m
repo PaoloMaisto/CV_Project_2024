@@ -1,4 +1,4 @@
-function plotPSNRResultsSAP(degree, psnr_results)
+function plot_PSNR_SAP(degree, psnr_results)
     % Funzione per graficare i risultati PSNR per vari livelli di rumore
     figure();
     plot(degree, psnr_results(1,:), 'p-', 'MarkerSize', 5, 'LineWidth', 1, 'Marker', 'v', 'DisplayName', 'AMF'); hold on;

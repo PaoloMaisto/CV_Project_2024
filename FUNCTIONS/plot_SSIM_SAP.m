@@ -1,4 +1,4 @@
-function plotSSIMResultsSAP(degree, ssim_results)
+function plot_SSIM_SAP(degree, ssim_results)
     % Funzione per graficare i risultati SSIM per vari livelli di rumore
     figure();
     plot(degree, ssim_results(1,:), 'p-', 'MarkerSize', 5, 'LineWidth', 1, 'Marker', 'v', 'DisplayName', 'AMF'); hold on;
