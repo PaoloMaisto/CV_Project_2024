@@ -1,0 +1,2 @@
+This project implements the following paper.
+Then to the 'Lenna' and 'Barbara' images are applied the following noises: Salt and Pepper, Gaussian, Rayleigh, Gamma, Exponential and Uniform; then remove them with the following filters: Gaussian, Median and Mean.
