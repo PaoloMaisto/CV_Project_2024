@@ -1,2 +1,2 @@
-This project implements the following paper.
+This project implements the 'NAMF A NON-LOCAL ADAPTIVE MEAN FILTER FOR SALT-AND-PEPPER NOISE' paper.
 Then to the 'Lenna' and 'Barbara' images are applied the following noises: Salt and Pepper, Gaussian, Rayleigh, Gamma, Exponential and Uniform; then remove them with the following filters: Gaussian, Median and Mean.

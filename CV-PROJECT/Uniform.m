@@ -15,10 +15,10 @@ addpath('FILTERS\');
 % I = imread('PICTURES/data/img256/straw.bmp');
 
 %% LENA.MAT
-% load('PICTURES/data/img512/Lenna.mat');
-% I = double(lena)/255;
+load('PICTURES/data/img512/Lenna.mat');
+I = double(lena)/255;
 
- I = imread('PICTURES/data/img512/Barbara.bmp'); % quello originale
+ %I = imread('PICTURES/data/img512/Barbara.bmp'); % quello originale
 % I = imread('PICTURES/data/img512/elaine512.png');
 % I = imread('PICTURES/data/img512/goldhill.bmp');
 % I = imread('PICTURES/data/img512/man.tiff');
@@ -28,7 +28,7 @@ addpath('FILTERS\');
 
 I = im2double(I);
 %% IMPLEMENTATION OF NOISE AND FILTERS
-degree = 0.1:0.1:0.9;          
+degree = 0.9;          
 [m,n] = size(degree);
 
 JJ = I; 
@@ -59,7 +59,7 @@ for i = 1:n
     
     figure();
     subplot(2,3,1); imshow(JJ,[]); title('Original');
-    subplot(2,3,2); imshow(I_uniform,[]); title(['Noisy Uniform, Degree = ', num2str(degree(i))]);
+    subplot(2,3,2); imshow(I_uniform,[]); title(['Noisy Uniform, Variance = ', num2str(degree(i))]);
     subplot(2,3,4); imshow(im_f_gaussian_uniform,[]); title(['Gaussian Filter, PSNR: ', num2str(psnr_gaussian), ' dB, SSIM: ', num2str(ssim_gaussian)]);
     subplot(2,3,5); imshow(im_f_median_uniform,[]); title(['Median Filter, PSNR: ', num2str(psnr_median), ' dB, SSIM: ', num2str(ssim_median)]);
     subplot(2,3,6); imshow(im_f_mean_uniform,[]);  title(['Mean Filter, PSNR: ', num2str(psnr_mean), ' dB, SSIM: ', num2str(ssim_mean)]);
@@ -67,7 +67,7 @@ for i = 1:n
     % Plots istogrammi
     figure();
     subplot(2,3,1); imhist(JJ);        title('Original');
-    subplot(2,3,2); imhist(I_uniform); title(['Noisy Uniform, Degree = ', num2str(degree(i))]);
+    subplot(2,3,2); imhist(I_uniform); title(['Noisy Uniform, Variance = ', num2str(degree(i))]);
     subplot(2,3,3); imhist(noise);     title('Noise');    
     subplot(2,3,4); imhist(im_f_gaussian_uniform); title('Gaussian Filter');
     subplot(2,3,5); imhist(im_f_median_uniform);   title('Median Filter');
@@ -75,10 +75,10 @@ for i = 1:n
    
 end
 
-% figure();
-% imhist(noise);     
-% title('Uniform Noise Histogram');
-% saveas(gcf, ['Uniform_Noise_Histogram','.pdf']);
+figure();
+imhist(noise);     
+title('Uniform Noise Histogram');
+saveas(gcf, ['Uniform_Noise_Histogram','.pdf']);
 
 plot_PSNR_Uniform(degree, psnr_results);
 

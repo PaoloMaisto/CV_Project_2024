@@ -19,9 +19,10 @@ addpath('FUNCTIONS\');
 % I = imread('PICTURES/data/img256/straw.bmp');
 
 %% LENA.MAT
-load('PICTURES/data/img512/Lenna.mat');
-I = double(lena)/255;
-% I = imread('PICTURES/data/img512/Barbara.bmp'); % quello originale
+% load('PICTURES/data/img512/Lenna.mat');
+% I = double(lena)/255;
+I = imread('PICTURES/data/img512/Barbara.bmp'); % quello originale
+I = double(I)/255;
 % I = imread('PICTURES/data/img512/elaine512.png');
 % I = imread('PICTURES/data/img512/goldhill.bmp');
 % I = imread('PICTURES/data/img512/man.tiff');
@@ -62,7 +63,7 @@ for i = 1:n
     % Visualizza le immagini con Rumore Gamma
     figure();
     subplot(2,3,1); imshow(JJ); title('Original');
-    subplot(2,3,2); imshow(I_gamma); title(['Noisy Exponential, Degree = ', num2str(variance(i))]);
+    subplot(2,3,2); imshow(I_gamma); title(['Noisy Gamma, Variance = ', num2str(variance(i))]);
     subplot(2,3,4); imshow(I_gamma); title('Gaussian Filter'); title(['Gaussian Filter, PSNR: ', num2str(psnr_gaussian), ' dB, SSIM: ', num2str(ssim_gaussian)]);
     subplot(2,3,5); imshow(I_gamma); title(['Median Filter, PSNR: ', num2str(psnr_median), ' dB, SSIM: ', num2str(ssim_median)]);
     subplot(2,3,6); imshow(I_gamma); title(['Mean Filter, PSNR: ', num2str(psnr_mean), ' dB, SSIM: ', num2str(ssim_mean)]);
